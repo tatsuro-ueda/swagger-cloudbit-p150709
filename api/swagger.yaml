@@ -1,0 +1,63 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: My CloudBit API
+  description: CloudBitの入力値を取得します
+  version: "0.0.1"
+# the domain of the service
+host: thermometer-cloudbit-p150705.herokuapp.com
+# array of all schemes that your API supports
+schemes:
+  - https
+# will be prefixed to all paths
+#basePath: /v1
+produces:
+  - application/json
+paths:
+  /input:
+    get:
+      summary: CloudBitの状態と入力値を取得
+      description: |
+        CloudBitの状態と入力値を取得します。
+      parameters:
+        - name: THERMO_CLOUDBIT_DEVICE_ID
+          in: query
+          description: デバイスID
+          required: true
+          type: string
+          default: '00e04c032d62'
+        - name: THERMO_CLOUDBIT_ACCESS_TOKEN
+          in: query
+          description: アクセストークン
+          required: true
+          type: string
+          default: '04784c7ae09bea78704572648c547c472f61dfce0bdf00075fb050f85eaff8ab'
+      tags:
+        - Input
+      responses:
+        200:
+          description: CloudBitの入力値と状態
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Input'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Input:
+    properties:
+      percent:
+        type: number
+        description: CloudBitの入力値です。この値がそのまま温度を示します。
+  Error:
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
