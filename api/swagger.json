@@ -1,11 +1,11 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "My CloudBit API",
-        "description": "CloudBitの入力値を取得します",
-        "version": "0.0.1"
+        "title": "CloudBit Web API",
+        "description": "稼働しているCloudBitの情報を取得します",
+        "version": "0.0.2"
     },
-    "host": "thermometer-cloudbit-p150705.herokuapp.com",
+    "host": "cloudbit-webapi-p150705.herokuapp.com",
     "schemes": [
         "https"
     ],
@@ -16,10 +16,10 @@
         "/input": {
             "get": {
                 "summary": "CloudBitの状態と入力値を取得",
-                "description": "CloudBitの状態と入力値を取得します。\n",
+                "description": "デバイスIDとアクセストークンを指定して、CloudBitの現在の入力値を取得します。\n",
                 "parameters": [
                     {
-                        "name": "THERMO_CLOUDBIT_DEVICE_ID",
+                        "name": "CLOUDBIT_DEVICE_ID",
                         "in": "query",
                         "description": "デバイスID",
                         "required": true,
@@ -27,7 +27,7 @@
                         "default": "00e04c032d62"
                     },
                     {
-                        "name": "THERMO_CLOUDBIT_ACCESS_TOKEN",
+                        "name": "CLOUDBIT_ACCESS_TOKEN",
                         "in": "query",
                         "description": "アクセストークン",
                         "required": true,
