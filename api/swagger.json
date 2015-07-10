@@ -61,9 +61,130 @@
     "definitions": {
         "Input": {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "入力と出力のどちらか"
+                },
+                "timestamp": {
+                    "type": "number",
+                    "description": "日時"
+                },
+                "from": {
+                    "type": "object",
+                    "properties": {
+                        "socket": {
+                            "type": "object",
+                            "properties": {
+                                "remotePort": {
+                                    "type": "number",
+                                    "description": "リモートホストのポート番号"
+                                },
+                                "remoteAddress": {
+                                    "type": "string"
+                                },
+                                "localAddress": {
+                                    "type": "string"
+                                },
+                                "localPort": {
+                                    "type": "number"
+                                },
+                                "id": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "server": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "user": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "device": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "device": {
+                                    "type": "string"
+                                },
+                                "setup-version": {
+                                    "type": "string"
+                                },
+                                "protocol_version": {
+                                    "type": "string"
+                                },
+                                "firmware_version": {
+                                    "type": "string"
+                                },
+                                "mac": {
+                                    "type": "string"
+                                },
+                                "hash": {
+                                    "type": "string"
+                                },
+                                "ap": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ssid": {
+                                            "type": "string"
+                                        },
+                                        "mac": {
+                                            "type": "string"
+                                        },
+                                        "strength": {
+                                            "type": "number"
+                                        }
+                                    }
+                                },
+                                "settings": {
+                                    "type": "object",
+                                    "properties": {
+                                        "label": {
+                                            "type": "string"
+                                        },
+                                        "input_interbal_ms": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "is_identified": {
+                            "type": "boolean"
+                        }
+                    }
+                },
                 "percent": {
                     "type": "number",
                     "description": "CloudBitの入力値です。この値がそのまま温度を示します。"
+                },
+                "absolute": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "payload": {
+                    "type": "object",
+                    "properties": {
+                        "percent": {
+                            "type": "number"
+                        },
+                        "absolute": {
+                            "type": "number"
+                        }
+                    }
                 }
             }
         },
